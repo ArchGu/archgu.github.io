@@ -6,7 +6,7 @@
   <link href="https://archgu.github.io/atom.xml" rel="self"/>
   
   <link href="https://archgu.github.io/"/>
-  <updated>2023-02-10T14:29:09.990Z</updated>
+  <updated>2023-02-11T13:31:37.854Z</updated>
   <id>https://archgu.github.io/</id>
   
   <author>
@@ -17,32 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Spacevim备份</title>
-    <link href="https://archgu.github.io/2023/02/10/spacevim/"/>
-    <id>https://archgu.github.io/2023/02/10/spacevim/</id>
-    <published>2023-02-10T14:26:15.623Z</published>
-    <updated>2023-02-10T14:29:09.990Z</updated>
+    <title>NextCloud文件同步及性能优化</title>
+    <link href="https://archgu.github.io/2023/02/11/nextcloud/"/>
+    <id>https://archgu.github.io/2023/02/11/nextcloud/</id>
+    <published>2023-02-11T13:11:10.275Z</published>
+    <updated>2023-02-11T13:31:37.854Z</updated>
     
-    <content type="html"><![CDATA[<p>Spacevim配置文件为：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ~/.config/nvim ~/.SpaceVim的链接</span></span><br><span class="line"><span class="comment"># ~/.cache/vim</span></span><br><span class="line"><span class="comment"># ~/.cache/vimfiles/repos github插件存储位置</span></span><br><span class="line"><span class="comment"># ~/.cache/SpaceVim</span></span><br><span class="line"><span class="comment"># ~/.SpaceVim spacevim 主体文件</span></span><br><span class="line"><span class="comment"># ~/.SpaceVim.d/init.toml 配置文件</span></span><br><span class="line"><span class="comment"># ~/.vim ~/.SpaceVim的链接</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="文件同步问题"><a href="#文件同步问题" class="headerlink" title="文件同步问题"></a>文件同步问题</h2><p>文件同步问题主要有两种：<br>1.文件大小限制<br>原因是Nginx而不是NextCloud，官方的限制是512MiB，修改Nginx的配置文件：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">client_max_body_size 1024m</span><br></pre></td></tr></table></figure><p>2.大文件同步超时造成同步失败，同样是nginx的问题，修改Nginx的配置文件：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fastcgi_read_timeout 600;</span><br><span class="line">fastcgi_send_timeout 600;</span><br><span class="line">fastcgi_connect_timeout 600;</span><br><span class="line">proxy_connect_timeout 600;</span><br><span class="line">proxy_send_timeout 600;</span><br><span class="line">proxy_read_timeout 600;</span><br><span class="line">send_timeout 600;</span><br></pre></td></tr></table></figure><h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p>1.php内存小于512MiB:</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">memory_limit = 1024M</span><br></pre></td></tr></table></figure><p>更多内容请见参考原文：<br><a href="https://blog.csdn.net/W_Wstill/article/details/120377189">原文</a></p>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;Spacevim配置文件为：&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# ~/.config/n</summary>
+    <summary type="html">&lt;h2 id=&quot;文件同步问题&quot;&gt;&lt;a href=&quot;#文件同步问题&quot; class=&quot;headerlink&quot; title=&quot;文件同步问题&quot;&gt;&lt;/a&gt;文件同步问题&lt;/h2&gt;&lt;p&gt;文件同步问题主要有两种：&lt;br&gt;1.文件大小限制&lt;br&gt;原因是Nginx而不是NextCloud，官方的限制</summary>
       
     
     
     
+    <category term="NextCloud" scheme="https://archgu.github.io/categories/NextCloud/"/>
+    
+    
+    <category term="Config" scheme="https://archgu.github.io/tags/Config/"/>
     
   </entry>
   
   <entry>
     <title>Manjaro</title>
-    <link href="https://archgu.github.io/2023/02/10/manjaro/"/>
-    <id>https://archgu.github.io/2023/02/10/manjaro/</id>
-    <published>2023-02-10T14:20:25.054Z</published>
-    <updated>2023-02-11T01:57:48.056Z</updated>
+    <link href="https://archgu.github.io/2023/02/11/manjaro/"/>
+    <id>https://archgu.github.io/2023/02/11/manjaro/</id>
+    <published>2023-02-11T11:21:57.223Z</published>
+    <updated>2023-02-11T13:31:53.848Z</updated>
     
     <content type="html"><![CDATA[<p>使用ventory安装后,开始配置</p><p>原则:开发环境与系统隔离，系统保持最简单安装（KISS原则的一个解释）</p><h2 id="源设置"><a href="#源设置" class="headerlink" title="源设置"></a>源设置</h2><p>官方源</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman-mirrors -i -c China -m rank</span><br></pre></td></tr></table></figure><p>archlinuxcn镜像源</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># /etc/pacman.conf</span></span><br><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure><p>刷新数据库</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -Syy</span><br><span class="line">pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure><p>Note:该源对应Manjaro unstable分支，注意兼容问题</p><h2 id="区域设置"><a href="#区域设置" class="headerlink" title="区域设置"></a>区域设置</h2><p>Gnome与ibus适配</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -S manjaro-asian-input-support-ibus ibus-libpinyin</span><br></pre></td></tr></table></figure><p>KDE与fcitx5适配</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -S manjaro-asian-input-support-fcitx5</span><br><span class="line">pacman -S fcitx5-chinese-addons</span><br><span class="line">pacman -S fcitx5-material-color</span><br><span class="line">pacman -S fcitx5-pinyin-zhwiki</span><br></pre></td></tr></table></figure><p>设置环境变量</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># /etc/profile</span></span><br><span class="line"><span class="comment"># ～/.xprofile</span></span><br><span class="line"><span class="built_in">export</span> GTK_IM_MODULE=输入法名</span><br><span class="line"><span class="built_in">export</span> XMODIFIERS=<span class="string">&quot;@im=输入法名&quot;</span></span><br><span class="line"><span class="built_in">export</span> QT_IM_MODULE=输入法名</span><br></pre></td></tr></table></figure><p>配置fcitx5 material主题</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ~/.config/fcitx5/conf/classicui.conf</span></span><br><span class="line"><span class="comment"># 垂直候选列表</span></span><br><span class="line">Vertical Candidate List=False</span><br><span class="line"><span class="comment"># 按屏幕 DPI 使用</span></span><br><span class="line">PerScreenDPI=True</span><br><span class="line"><span class="comment"># Font (设置成你喜欢的字体)</span></span><br><span class="line">Font=<span class="string">&quot;Microsoft YaHei UI 14&quot;</span></span><br><span class="line"><span class="comment"># 主题</span></span><br><span class="line">Theme=Material-Color-Black</span><br></pre></td></tr></table></figure><p>字体</p><p>将Windows下的字体文件放到一个文件夹中，然后放入注释的目录中，切换到新的文件夹后，执行命令</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># /usr/share/fonts/*</span></span><br><span class="line">mkfontscale</span><br><span class="line">mkfontdir</span><br><span class="line">fc-cache -fv</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -56,15 +59,44 @@
     
     
     
+    <category term="Linux" scheme="https://archgu.github.io/categories/Linux/"/>
+    
+    
+    <category term="Manjaro" scheme="https://archgu.github.io/tags/Manjaro/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spacevim备份</title>
+    <link href="https://archgu.github.io/2023/02/11/spacevim/"/>
+    <id>https://archgu.github.io/2023/02/11/spacevim/</id>
+    <published>2023-02-11T11:21:57.223Z</published>
+    <updated>2023-02-11T13:30:19.775Z</updated>
+    
+    <content type="html"><![CDATA[<p>Spacevim配置文件为：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ~/.config/nvim ~/.SpaceVim的链接</span></span><br><span class="line"><span class="comment"># ~/.cache/vim</span></span><br><span class="line"><span class="comment"># ~/.cache/vimfiles/repos github插件存储位置</span></span><br><span class="line"><span class="comment"># ~/.cache/SpaceVim</span></span><br><span class="line"><span class="comment"># ~/.SpaceVim spacevim 主体文件</span></span><br><span class="line"><span class="comment"># ~/.SpaceVim.d/init.toml 配置文件</span></span><br><span class="line"><span class="comment"># ~/.vim ~/.SpaceVim的链接</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Spacevim配置文件为：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# ~/.config/n</summary>
+      
+    
+    
+    
+    <category term="Vim" scheme="https://archgu.github.io/categories/Vim/"/>
+    
+    
+    <category term="Backup" scheme="https://archgu.github.io/tags/Backup/"/>
     
   </entry>
   
   <entry>
     <title>Gentoo配置备份</title>
-    <link href="https://archgu.github.io/2023/02/10/gentoo_confbk/"/>
-    <id>https://archgu.github.io/2023/02/10/gentoo_confbk/</id>
-    <published>2023-02-10T14:17:31.585Z</published>
-    <updated>2023-02-10T14:19:40.194Z</updated>
+    <link href="https://archgu.github.io/2023/02/11/gentoo_confbk/"/>
+    <id>https://archgu.github.io/2023/02/11/gentoo_confbk/</id>
+    <published>2023-02-11T11:21:57.220Z</published>
+    <updated>2023-02-11T13:28:42.267Z</updated>
     
     <content type="html"><![CDATA[<p>CPU:R5 2500U</p><p>GPU:核显</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">## /etc/portage/make.conf</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># These settings were set by the catalyst build script that automatically</span></span><br><span class="line"><span class="comment"># built this stage.</span></span><br><span class="line"><span class="comment"># Please consult /usr/share/portage/config/make.conf.example for a more</span></span><br><span class="line"><span class="comment"># detailed example.</span></span><br><span class="line">COMMON_FLAGS=<span class="string">&quot;-march=native -O2 -pipe&quot;</span></span><br><span class="line">CFLAGS=<span class="string">&quot;<span class="variable">$&#123;COMMON_FLAGS&#125;</span>&quot;</span></span><br><span class="line">CXXFLAGS=<span class="string">&quot;<span class="variable">$&#123;COMMON_FLAGS&#125;</span>&quot;</span></span><br><span class="line">FCFLAGS=<span class="string">&quot;<span class="variable">$&#123;COMMON_FLAGS&#125;</span>&quot;</span></span><br><span class="line">FFLAGS=<span class="string">&quot;<span class="variable">$&#123;COMMON_FLAGS&#125;</span>&quot;</span></span><br><span class="line">MAKEOPTS=<span class="string">&quot;-j3&quot;</span></span><br><span class="line">VIDEO_CARDS=<span class="string">&quot;amdgpu radeonsi&quot;</span></span><br><span class="line">INPUT_DEVICES=<span class="string">&quot;evdev synaptics&quot;</span></span><br><span class="line">L10N=<span class="string">&quot;en-US zh-CN en zh&quot;</span></span><br><span class="line">LANGUAS=<span class="string">&quot;en-US zh_CN en zh&quot;</span></span><br><span class="line">AUTO_CLEAN=<span class="string">&quot;yes&quot;</span></span><br><span class="line">GENTOO_MIRRORS=<span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/gentoo&quot;</span></span><br><span class="line">ACCEPT_KEYWORDS=<span class="string">&quot;amd64&quot;</span></span><br><span class="line">ACCEPT_LICENSE=<span class="string">&quot;*&quot;</span></span><br><span class="line">CHOST=<span class="string">&quot;x86_64-pc-linux-gnu&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># bluetooth concheck connection-sharing gtk-doc introspection modemmanager nss policykit ppp systemd tools wext wifi</span></span><br><span class="line">USE=<span class="string">&quot;X ccache acpi iptables openmp dhcp bluetooth introspection modemmanager nss policykit systemd tools concheck udev wifi \</span></span><br><span class="line"><span class="string">efi network networkmanager jack connection-sharing ppp udisk dbus cjk sudo alsa python xorg xcsecurity  unwind suid tcl \</span></span><br><span class="line"><span class="string">jpeg2k positioning quick qml gd corefonts mtp unicode contrib pulseaudio&quot;</span></span><br><span class="line">FEATURES=<span class="string">&quot;ccache buildpkg preserve-libs&quot;</span></span><br><span class="line">CCACHE_DIR=<span class="string">&quot;/var/cache/ccache&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># <span class="doctag">NOTE:</span> This stage was built with the bindist Use flag enabled</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># This sets the language of build output to English.</span></span><br><span class="line"><span class="comment"># Please keep this setting intact when reporting bugs.</span></span><br><span class="line">LC_MESSAGES=C</span><br><span class="line">GRUB_PLATFORMS=<span class="string">&quot;efi-64&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
     
@@ -78,36 +110,19 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>Gentoo系统备份</title>
-    <link href="https://archgu.github.io/2023/02/10/gentoo_rc/"/>
-    <id>https://archgu.github.io/2023/02/10/gentoo_rc/</id>
-    <published>2023-02-10T14:13:15.157Z</published>
-    <updated>2023-02-10T14:16:49.714Z</updated>
-    
-    <content type="html"><![CDATA[<p>备份以快速恢复</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. 内核配置文件: /usr/src/linux/.config  <span class="comment">## 方便重新配置内核</span></span><br><span class="line">2. 文件安装配置: /etc/portage/make.conf以及 /etc/portage/package.* <span class="comment">## 方便配置USE flag</span></span><br><span class="line">3. 已安装文件列表: /var/lib/portage/world  <span class="comment">##方便emerge -avuDN world</span></span><br><span class="line">4. X的配置文件:  /etc/X11/xorg.conf   <span class="comment">##方便配置鼠标，显示器</span></span><br><span class="line">5. 磁盘挂载配置文件: /etc/fstab  <span class="comment">##挂载</span></span><br><span class="line">6. grub启动配置文件: /boot/grub/grub.cfg  <span class="comment">##分区启动</span></span><br><span class="line">7. ~/bashrc, ~/.xinitrc ....</span><br><span class="line">8.二进制包;/var/cache/binpkgs/ <span class="comment">#XAPK Or GAPK</span></span><br><span class="line">9.源文件: /var/cache/distfiles/</span><br></pre></td></tr></table></figure>]]></content>
+    <category term="Linux" scheme="https://archgu.github.io/categories/Linux/"/>
     
     
-      
-      
-    <summary type="html">&lt;p&gt;备份以快速恢复&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1. 内核配置文件: /usr/src/linux/.config  &lt;span c</summary>
-      
-    
-    
-    
+    <category term="Gentoo" scheme="https://archgu.github.io/tags/Gentoo/"/>
     
   </entry>
   
   <entry>
     <title>CCache编译缓存器</title>
-    <link href="https://archgu.github.io/2023/02/10/ccache/"/>
-    <id>https://archgu.github.io/2023/02/10/ccache/</id>
-    <published>2023-02-10T14:09:08.250Z</published>
-    <updated>2023-02-10T14:12:07.256Z</updated>
+    <link href="https://archgu.github.io/2023/02/11/ccache/"/>
+    <id>https://archgu.github.io/2023/02/11/ccache/</id>
+    <published>2023-02-11T11:21:57.220Z</published>
+    <updated>2023-02-11T13:26:58.503Z</updated>
     
     <content type="html"><![CDATA[<p>用于gentoo portage加速编译</p><p>配置make.conf</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># /etc/portage/make.conf</span></span><br><span class="line"><span class="comment"># 为portage开启编译缓存器</span></span><br><span class="line">FEATURES=<span class="string">&quot;ccache&quot;</span></span><br><span class="line">CCACHE_DIR=<span class="string">&quot;/var/cache/ccache&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># May be needed to workaround a bug, but has some security implications</span></span><br><span class="line"><span class="comment"># https://bugs.gentoo.org/492910</span></span><br><span class="line"><span class="comment">#CCACHE_UMASK=&quot;0002&quot;</span></span><br></pre></td></tr></table></figure><p>配置ccache.conf</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># /var/cache/ccache/ccache.conf</span></span><br><span class="line"><span class="comment"># Maximum cache size to maintain</span></span><br><span class="line">max_size = 100.0G</span><br><span class="line"></span><br><span class="line"><span class="comment"># Allow others to run &#x27;ebuild&#x27; and share the cache.</span></span><br><span class="line"><span class="built_in">umask</span> = 002</span><br><span class="line"></span><br><span class="line"><span class="comment"># Don&#x27;t include the current directory when calculating</span></span><br><span class="line"><span class="comment"># hashes for the cache. This allows re-use of the cache</span></span><br><span class="line"><span class="comment"># across different package versions, at the cost of</span></span><br><span class="line"><span class="comment"># slightly incorrect paths in debugging info.</span></span><br><span class="line"><span class="comment"># https://ccache.dev/manual/4.4.html#_performance</span></span><br><span class="line">hash_dir = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Preserve cache across GCC rebuilds and</span></span><br><span class="line"><span class="comment"># introspect GCC changes through GCC wrapper.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># We use -dumpversion here instead of -v,</span></span><br><span class="line"><span class="comment"># see https://bugs.gentoo.org/872971.</span></span><br><span class="line">compiler_check = %compiler% -dumpversion</span><br><span class="line"></span><br><span class="line"><span class="comment"># I expect 1.5M files. 300 files per directory.</span></span><br><span class="line">cache_dir_levels = 3</span><br><span class="line"></span><br><span class="line"><span class="comment"># Logging setup is optional</span></span><br><span class="line"><span class="comment"># Portage runs various phases as different users</span></span><br><span class="line"><span class="comment"># so beware of setting a log_file path here: the file</span></span><br><span class="line"><span class="comment"># should already exist and be writable by at least</span></span><br><span class="line"><span class="comment"># root and portage. If a log_file path is set, don&#x27;t</span></span><br><span class="line"><span class="comment"># forget to set up log rotation!</span></span><br><span class="line"><span class="comment"># log_file = /var/log/ccache.log</span></span><br><span class="line"><span class="comment"># Alternatively, log to syslog</span></span><br><span class="line"><span class="comment"># log_file = syslog</span></span><br></pre></td></tr></table></figure>]]></content>
     
@@ -121,15 +136,68 @@
     
     
     
+    <category term="Linux" scheme="https://archgu.github.io/categories/Linux/"/>
+    
+    
+    <category term="Gentoo" scheme="https://archgu.github.io/tags/Gentoo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://archgu.github.io/2023/02/11/hello-world/"/>
+    <id>https://archgu.github.io/2023/02/11/hello-world/</id>
+    <published>2023-02-11T11:21:57.220Z</published>
+    <updated>2023-02-11T13:29:30.403Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    <category term="Hexo" scheme="https://archgu.github.io/categories/Hexo/"/>
+    
+    
+    <category term="Help" scheme="https://archgu.github.io/tags/Help/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Gentoo系统备份</title>
+    <link href="https://archgu.github.io/2023/02/11/gentoo_rc/"/>
+    <id>https://archgu.github.io/2023/02/11/gentoo_rc/</id>
+    <published>2023-02-11T11:21:57.220Z</published>
+    <updated>2023-02-11T13:29:03.528Z</updated>
+    
+    <content type="html"><![CDATA[<p>备份以快速恢复</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. 内核配置文件: /usr/src/linux/.config  <span class="comment">## 方便重新配置内核</span></span><br><span class="line">2. 文件安装配置: /etc/portage/make.conf以及 /etc/portage/package.* <span class="comment">## 方便配置USE flag</span></span><br><span class="line">3. 已安装文件列表: /var/lib/portage/world  <span class="comment">##方便emerge -avuDN world</span></span><br><span class="line">4. X的配置文件:  /etc/X11/xorg.conf   <span class="comment">##方便配置鼠标，显示器</span></span><br><span class="line">5. 磁盘挂载配置文件: /etc/fstab  <span class="comment">##挂载</span></span><br><span class="line">6. grub启动配置文件: /boot/grub/grub.cfg  <span class="comment">##分区启动</span></span><br><span class="line">7. ~/bashrc, ~/.xinitrc ....</span><br><span class="line">8.二进制包;/var/cache/binpkgs/ <span class="comment">#XAPK Or GAPK</span></span><br><span class="line">9.源文件: /var/cache/distfiles/</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;备份以快速恢复&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1. 内核配置文件: /usr/src/linux/.config  &lt;span c</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="https://archgu.github.io/categories/Linux/"/>
+    
+    
+    <category term="Gentoo" scheme="https://archgu.github.io/tags/Gentoo/"/>
     
   </entry>
   
   <entry>
     <title>Timeshift备份</title>
-    <link href="https://archgu.github.io/2023/02/10/timeshift/"/>
-    <id>https://archgu.github.io/2023/02/10/timeshift/</id>
-    <published>2023-02-10T14:05:05.856Z</published>
-    <updated>2023-02-10T14:08:33.182Z</updated>
+    <link href="https://archgu.github.io/2023/02/11/timeshift/"/>
+    <id>https://archgu.github.io/2023/02/11/timeshift/</id>
+    <published>2023-02-11T11:21:57.220Z</published>
+    <updated>2023-02-11T13:29:58.014Z</updated>
     
     <content type="html"><![CDATA[<p>timeshift有两种备份方式：</p><p>1.rsync，有点像复制粘贴备份，比较无脑</p><p>2.btrfs文件系统的一个特性，启用该备份方式必须在Linux安装阶段就开始配置，不然比较麻烦。</p><p>首先创建btrfs文件系统后，挂载分区并进入分区的根目录创建子卷：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">btrfs subvolume create ./@ <span class="comment">#挂载点为/</span></span><br></pre></td></tr></table></figure><p>home分区同上：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">btrfs subvolume create ./@home <span class="comment">#挂载点为/home</span></span><br></pre></td></tr></table></figure><p>chroot时需挂载子卷，具体原因见FHS（LInux文件目录标准）：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mount -t btrfs -o subvol=/@ ...</span><br><span class="line">mount -t btrfs -o subvol=/@home ...</span><br></pre></td></tr></table></figure><p>同样，&#x2F;etc&#x2F;fstab也需挂载子卷。<br>安装好系统后再配置时需要重新配置grub，并移动大量的文件，这就是本文开始时说明的麻烦的地方。</p>]]></content>
     
@@ -144,26 +212,10 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://archgu.github.io/2023/02/10/hello-world/"/>
-    <id>https://archgu.github.io/2023/02/10/hello-world/</id>
-    <published>2023-02-10T12:03:40.375Z</published>
-    <updated>2023-02-10T12:03:40.375Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <category term="Linux" scheme="https://archgu.github.io/categories/Linux/"/>
     
     
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
+    <category term="Backup" scheme="https://archgu.github.io/tags/Backup/"/>
     
   </entry>
   
