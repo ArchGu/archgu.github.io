@@ -6,7 +6,7 @@
   <link href="https://archgu.github.io/atom.xml" rel="self"/>
   
   <link href="https://archgu.github.io/"/>
-  <updated>2023-02-12T02:33:26.172Z</updated>
+  <updated>2023-02-12T09:52:27.055Z</updated>
   <id>https://archgu.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>胶囊咖啡粒径分布初探</title>
+    <link href="https://archgu.github.io/2023/02/12/coffee_jnlj/"/>
+    <id>https://archgu.github.io/2023/02/12/coffee_jnlj/</id>
+    <published>2023-02-12T09:41:07.880Z</published>
+    <updated>2023-02-12T09:52:27.055Z</updated>
+    
+    <content type="html"><![CDATA[<p>通过筛粉器初筛后，确定了以下：<br>1.250微米以下的极细粉对萃取时水的流速影响非常大<br>2.500微米筛后不适合滴滤，反而适合浸泡<br>胶囊咖啡粒径分布推断：<br>1.胶囊咖啡过500微米筛时仍有残留，粉径比一般意义上的意式的粉径大<br>2.过250筛后，萃取困难，粒径应大于250<br>3.一致性比一般的手摇磨豆机好<br>推断粒径分布大约为350微米-550微米</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;通过筛粉器初筛后，确定了以下：&lt;br&gt;1.250微米以下的极细粉对萃取时水的流速影响非常大&lt;br&gt;2.500微米筛后不适合滴滤，反而适合浸泡&lt;br&gt;胶囊咖啡粒径分布推断：&lt;br&gt;1.胶囊咖啡过500微米筛时仍有残留，粉径比一般意义上的意式的粉径大&lt;br&gt;2.过250筛后，萃</summary>
+      
+    
+    
+    
+    <category term="Coffee" scheme="https://archgu.github.io/categories/Coffee/"/>
+    
+    
+    <category term="Nespresso" scheme="https://archgu.github.io/tags/Nespresso/"/>
+    
+  </entry>
   
   <entry>
     <title>NextCloud文件同步及性能优化</title>
@@ -118,32 +142,6 @@
   </entry>
   
   <entry>
-    <title>Gentoo配置备份</title>
-    <link href="https://archgu.github.io/2023/02/11/gentoo_confbk/"/>
-    <id>https://archgu.github.io/2023/02/11/gentoo_confbk/</id>
-    <published>2023-02-11T11:21:57.220Z</published>
-    <updated>2023-02-11T13:28:42.267Z</updated>
-    
-    <content type="html"><![CDATA[<p>CPU:R5 2500U</p><p>GPU:核显</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">## /etc/portage/make.conf</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># These settings were set by the catalyst build script that automatically</span></span><br><span class="line"><span class="comment"># built this stage.</span></span><br><span class="line"><span class="comment"># Please consult /usr/share/portage/config/make.conf.example for a more</span></span><br><span class="line"><span class="comment"># detailed example.</span></span><br><span class="line">COMMON_FLAGS=<span class="string">&quot;-march=native -O2 -pipe&quot;</span></span><br><span class="line">CFLAGS=<span class="string">&quot;<span class="variable">$&#123;COMMON_FLAGS&#125;</span>&quot;</span></span><br><span class="line">CXXFLAGS=<span class="string">&quot;<span class="variable">$&#123;COMMON_FLAGS&#125;</span>&quot;</span></span><br><span class="line">FCFLAGS=<span class="string">&quot;<span class="variable">$&#123;COMMON_FLAGS&#125;</span>&quot;</span></span><br><span class="line">FFLAGS=<span class="string">&quot;<span class="variable">$&#123;COMMON_FLAGS&#125;</span>&quot;</span></span><br><span class="line">MAKEOPTS=<span class="string">&quot;-j3&quot;</span></span><br><span class="line">VIDEO_CARDS=<span class="string">&quot;amdgpu radeonsi&quot;</span></span><br><span class="line">INPUT_DEVICES=<span class="string">&quot;evdev synaptics&quot;</span></span><br><span class="line">L10N=<span class="string">&quot;en-US zh-CN en zh&quot;</span></span><br><span class="line">LANGUAS=<span class="string">&quot;en-US zh_CN en zh&quot;</span></span><br><span class="line">AUTO_CLEAN=<span class="string">&quot;yes&quot;</span></span><br><span class="line">GENTOO_MIRRORS=<span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/gentoo&quot;</span></span><br><span class="line">ACCEPT_KEYWORDS=<span class="string">&quot;amd64&quot;</span></span><br><span class="line">ACCEPT_LICENSE=<span class="string">&quot;*&quot;</span></span><br><span class="line">CHOST=<span class="string">&quot;x86_64-pc-linux-gnu&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># bluetooth concheck connection-sharing gtk-doc introspection modemmanager nss policykit ppp systemd tools wext wifi</span></span><br><span class="line">USE=<span class="string">&quot;X ccache acpi iptables openmp dhcp bluetooth introspection modemmanager nss policykit systemd tools concheck udev wifi \</span></span><br><span class="line"><span class="string">efi network networkmanager jack connection-sharing ppp udisk dbus cjk sudo alsa python xorg xcsecurity  unwind suid tcl \</span></span><br><span class="line"><span class="string">jpeg2k positioning quick qml gd corefonts mtp unicode contrib pulseaudio&quot;</span></span><br><span class="line">FEATURES=<span class="string">&quot;ccache buildpkg preserve-libs&quot;</span></span><br><span class="line">CCACHE_DIR=<span class="string">&quot;/var/cache/ccache&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># <span class="doctag">NOTE:</span> This stage was built with the bindist Use flag enabled</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># This sets the language of build output to English.</span></span><br><span class="line"><span class="comment"># Please keep this setting intact when reporting bugs.</span></span><br><span class="line">LC_MESSAGES=C</span><br><span class="line">GRUB_PLATFORMS=<span class="string">&quot;efi-64&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;CPU:R5 2500U&lt;/p&gt;
-&lt;p&gt;GPU:核显&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#</summary>
-      
-    
-    
-    
-    <category term="Linux" scheme="https://archgu.github.io/categories/Linux/"/>
-    
-    
-    <category term="Gentoo" scheme="https://archgu.github.io/tags/Gentoo/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Gentoo系统备份</title>
     <link href="https://archgu.github.io/2023/02/11/gentoo_rc/"/>
     <id>https://archgu.github.io/2023/02/11/gentoo_rc/</id>
@@ -189,6 +187,32 @@
     
     
     <category term="Help" scheme="https://archgu.github.io/tags/Help/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Gentoo配置备份</title>
+    <link href="https://archgu.github.io/2023/02/11/gentoo_confbk/"/>
+    <id>https://archgu.github.io/2023/02/11/gentoo_confbk/</id>
+    <published>2023-02-11T11:21:57.220Z</published>
+    <updated>2023-02-11T13:28:42.267Z</updated>
+    
+    <content type="html"><![CDATA[<p>CPU:R5 2500U</p><p>GPU:核显</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">## /etc/portage/make.conf</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># These settings were set by the catalyst build script that automatically</span></span><br><span class="line"><span class="comment"># built this stage.</span></span><br><span class="line"><span class="comment"># Please consult /usr/share/portage/config/make.conf.example for a more</span></span><br><span class="line"><span class="comment"># detailed example.</span></span><br><span class="line">COMMON_FLAGS=<span class="string">&quot;-march=native -O2 -pipe&quot;</span></span><br><span class="line">CFLAGS=<span class="string">&quot;<span class="variable">$&#123;COMMON_FLAGS&#125;</span>&quot;</span></span><br><span class="line">CXXFLAGS=<span class="string">&quot;<span class="variable">$&#123;COMMON_FLAGS&#125;</span>&quot;</span></span><br><span class="line">FCFLAGS=<span class="string">&quot;<span class="variable">$&#123;COMMON_FLAGS&#125;</span>&quot;</span></span><br><span class="line">FFLAGS=<span class="string">&quot;<span class="variable">$&#123;COMMON_FLAGS&#125;</span>&quot;</span></span><br><span class="line">MAKEOPTS=<span class="string">&quot;-j3&quot;</span></span><br><span class="line">VIDEO_CARDS=<span class="string">&quot;amdgpu radeonsi&quot;</span></span><br><span class="line">INPUT_DEVICES=<span class="string">&quot;evdev synaptics&quot;</span></span><br><span class="line">L10N=<span class="string">&quot;en-US zh-CN en zh&quot;</span></span><br><span class="line">LANGUAS=<span class="string">&quot;en-US zh_CN en zh&quot;</span></span><br><span class="line">AUTO_CLEAN=<span class="string">&quot;yes&quot;</span></span><br><span class="line">GENTOO_MIRRORS=<span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/gentoo&quot;</span></span><br><span class="line">ACCEPT_KEYWORDS=<span class="string">&quot;amd64&quot;</span></span><br><span class="line">ACCEPT_LICENSE=<span class="string">&quot;*&quot;</span></span><br><span class="line">CHOST=<span class="string">&quot;x86_64-pc-linux-gnu&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># bluetooth concheck connection-sharing gtk-doc introspection modemmanager nss policykit ppp systemd tools wext wifi</span></span><br><span class="line">USE=<span class="string">&quot;X ccache acpi iptables openmp dhcp bluetooth introspection modemmanager nss policykit systemd tools concheck udev wifi \</span></span><br><span class="line"><span class="string">efi network networkmanager jack connection-sharing ppp udisk dbus cjk sudo alsa python xorg xcsecurity  unwind suid tcl \</span></span><br><span class="line"><span class="string">jpeg2k positioning quick qml gd corefonts mtp unicode contrib pulseaudio&quot;</span></span><br><span class="line">FEATURES=<span class="string">&quot;ccache buildpkg preserve-libs&quot;</span></span><br><span class="line">CCACHE_DIR=<span class="string">&quot;/var/cache/ccache&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># <span class="doctag">NOTE:</span> This stage was built with the bindist Use flag enabled</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># This sets the language of build output to English.</span></span><br><span class="line"><span class="comment"># Please keep this setting intact when reporting bugs.</span></span><br><span class="line">LC_MESSAGES=C</span><br><span class="line">GRUB_PLATFORMS=<span class="string">&quot;efi-64&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;CPU:R5 2500U&lt;/p&gt;
+&lt;p&gt;GPU:核显&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="https://archgu.github.io/categories/Linux/"/>
+    
+    
+    <category term="Gentoo" scheme="https://archgu.github.io/tags/Gentoo/"/>
     
   </entry>
   
