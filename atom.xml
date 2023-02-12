@@ -6,7 +6,7 @@
   <link href="https://archgu.github.io/atom.xml" rel="self"/>
   
   <link href="https://archgu.github.io/"/>
-  <updated>2023-02-11T13:31:37.854Z</updated>
+  <updated>2023-02-12T02:33:26.172Z</updated>
   <id>https://archgu.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://archgu.github.io/2023/02/11/nextcloud/"/>
     <id>https://archgu.github.io/2023/02/11/nextcloud/</id>
     <published>2023-02-11T13:11:10.275Z</published>
-    <updated>2023-02-11T13:31:37.854Z</updated>
+    <updated>2023-02-12T02:33:26.172Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="文件同步问题"><a href="#文件同步问题" class="headerlink" title="文件同步问题"></a>文件同步问题</h2><p>文件同步问题主要有两种：<br>1.文件大小限制<br>原因是Nginx而不是NextCloud，官方的限制是512MiB，修改Nginx的配置文件：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">client_max_body_size 1024m</span><br></pre></td></tr></table></figure><p>2.大文件同步超时造成同步失败，同样是nginx的问题，修改Nginx的配置文件：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fastcgi_read_timeout 600;</span><br><span class="line">fastcgi_send_timeout 600;</span><br><span class="line">fastcgi_connect_timeout 600;</span><br><span class="line">proxy_connect_timeout 600;</span><br><span class="line">proxy_send_timeout 600;</span><br><span class="line">proxy_read_timeout 600;</span><br><span class="line">send_timeout 600;</span><br></pre></td></tr></table></figure><h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p>1.php内存小于512MiB:</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">memory_limit = 1024M</span><br></pre></td></tr></table></figure><p>更多内容请见参考原文：<br><a href="https://blog.csdn.net/W_Wstill/article/details/120377189">原文</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="文件同步问题"><a href="#文件同步问题" class="headerlink" title="文件同步问题"></a>文件同步问题</h2><p>文件同步问题主要有两种：<br>1.文件大小限制<br>原因是Nginx而不是NextCloud，官方的限制是512MiB，修改Nginx的配置文件：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">client_max_body_size 1024m</span><br></pre></td></tr></table></figure><p>2.大文件同步超时造成同步失败，同样是Nginx的问题，修改Nginx的配置文件：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fastcgi_read_timeout 600;</span><br><span class="line">fastcgi_send_timeout 600;</span><br><span class="line">fastcgi_connect_timeout 600;</span><br><span class="line">proxy_connect_timeout 600;</span><br><span class="line">proxy_send_timeout 600;</span><br><span class="line">proxy_read_timeout 600;</span><br><span class="line">send_timeout 600;</span><br></pre></td></tr></table></figure><h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p>1.php内存小于512MiB:</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">memory_limit = 1024M</span><br></pre></td></tr></table></figure><p>更多内容请见参考原文：<br><a href="https://blog.csdn.net/W_Wstill/article/details/120377189">原文</a></p>]]></content>
     
     
       
@@ -37,6 +37,31 @@
     
     
     <category term="Config" scheme="https://archgu.github.io/tags/Config/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spacevim备份</title>
+    <link href="https://archgu.github.io/2023/02/11/spacevim/"/>
+    <id>https://archgu.github.io/2023/02/11/spacevim/</id>
+    <published>2023-02-11T11:21:57.223Z</published>
+    <updated>2023-02-11T13:30:19.775Z</updated>
+    
+    <content type="html"><![CDATA[<p>Spacevim配置文件为：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ~/.config/nvim ~/.SpaceVim的链接</span></span><br><span class="line"><span class="comment"># ~/.cache/vim</span></span><br><span class="line"><span class="comment"># ~/.cache/vimfiles/repos github插件存储位置</span></span><br><span class="line"><span class="comment"># ~/.cache/SpaceVim</span></span><br><span class="line"><span class="comment"># ~/.SpaceVim spacevim 主体文件</span></span><br><span class="line"><span class="comment"># ~/.SpaceVim.d/init.toml 配置文件</span></span><br><span class="line"><span class="comment"># ~/.vim ~/.SpaceVim的链接</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Spacevim配置文件为：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# ~/.config/n</summary>
+      
+    
+    
+    
+    <category term="Vim" scheme="https://archgu.github.io/categories/Vim/"/>
+    
+    
+    <category term="Backup" scheme="https://archgu.github.io/tags/Backup/"/>
     
   </entry>
   
@@ -67,27 +92,28 @@
   </entry>
   
   <entry>
-    <title>Spacevim备份</title>
-    <link href="https://archgu.github.io/2023/02/11/spacevim/"/>
-    <id>https://archgu.github.io/2023/02/11/spacevim/</id>
-    <published>2023-02-11T11:21:57.223Z</published>
-    <updated>2023-02-11T13:30:19.775Z</updated>
+    <title>CCache编译缓存器</title>
+    <link href="https://archgu.github.io/2023/02/11/ccache/"/>
+    <id>https://archgu.github.io/2023/02/11/ccache/</id>
+    <published>2023-02-11T11:21:57.220Z</published>
+    <updated>2023-02-11T13:26:58.503Z</updated>
     
-    <content type="html"><![CDATA[<p>Spacevim配置文件为：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ~/.config/nvim ~/.SpaceVim的链接</span></span><br><span class="line"><span class="comment"># ~/.cache/vim</span></span><br><span class="line"><span class="comment"># ~/.cache/vimfiles/repos github插件存储位置</span></span><br><span class="line"><span class="comment"># ~/.cache/SpaceVim</span></span><br><span class="line"><span class="comment"># ~/.SpaceVim spacevim 主体文件</span></span><br><span class="line"><span class="comment"># ~/.SpaceVim.d/init.toml 配置文件</span></span><br><span class="line"><span class="comment"># ~/.vim ~/.SpaceVim的链接</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>用于gentoo portage加速编译</p><p>配置make.conf</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># /etc/portage/make.conf</span></span><br><span class="line"><span class="comment"># 为portage开启编译缓存器</span></span><br><span class="line">FEATURES=<span class="string">&quot;ccache&quot;</span></span><br><span class="line">CCACHE_DIR=<span class="string">&quot;/var/cache/ccache&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># May be needed to workaround a bug, but has some security implications</span></span><br><span class="line"><span class="comment"># https://bugs.gentoo.org/492910</span></span><br><span class="line"><span class="comment">#CCACHE_UMASK=&quot;0002&quot;</span></span><br></pre></td></tr></table></figure><p>配置ccache.conf</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># /var/cache/ccache/ccache.conf</span></span><br><span class="line"><span class="comment"># Maximum cache size to maintain</span></span><br><span class="line">max_size = 100.0G</span><br><span class="line"></span><br><span class="line"><span class="comment"># Allow others to run &#x27;ebuild&#x27; and share the cache.</span></span><br><span class="line"><span class="built_in">umask</span> = 002</span><br><span class="line"></span><br><span class="line"><span class="comment"># Don&#x27;t include the current directory when calculating</span></span><br><span class="line"><span class="comment"># hashes for the cache. This allows re-use of the cache</span></span><br><span class="line"><span class="comment"># across different package versions, at the cost of</span></span><br><span class="line"><span class="comment"># slightly incorrect paths in debugging info.</span></span><br><span class="line"><span class="comment"># https://ccache.dev/manual/4.4.html#_performance</span></span><br><span class="line">hash_dir = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Preserve cache across GCC rebuilds and</span></span><br><span class="line"><span class="comment"># introspect GCC changes through GCC wrapper.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># We use -dumpversion here instead of -v,</span></span><br><span class="line"><span class="comment"># see https://bugs.gentoo.org/872971.</span></span><br><span class="line">compiler_check = %compiler% -dumpversion</span><br><span class="line"></span><br><span class="line"><span class="comment"># I expect 1.5M files. 300 files per directory.</span></span><br><span class="line">cache_dir_levels = 3</span><br><span class="line"></span><br><span class="line"><span class="comment"># Logging setup is optional</span></span><br><span class="line"><span class="comment"># Portage runs various phases as different users</span></span><br><span class="line"><span class="comment"># so beware of setting a log_file path here: the file</span></span><br><span class="line"><span class="comment"># should already exist and be writable by at least</span></span><br><span class="line"><span class="comment"># root and portage. If a log_file path is set, don&#x27;t</span></span><br><span class="line"><span class="comment"># forget to set up log rotation!</span></span><br><span class="line"><span class="comment"># log_file = /var/log/ccache.log</span></span><br><span class="line"><span class="comment"># Alternatively, log to syslog</span></span><br><span class="line"><span class="comment"># log_file = syslog</span></span><br></pre></td></tr></table></figure>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;Spacevim配置文件为：&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# ~/.config/n</summary>
+    <summary type="html">&lt;p&gt;用于gentoo portage加速编译&lt;/p&gt;
+&lt;p&gt;配置make.conf&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span clas</summary>
       
     
     
     
-    <category term="Vim" scheme="https://archgu.github.io/categories/Vim/"/>
+    <category term="Linux" scheme="https://archgu.github.io/categories/Linux/"/>
     
     
-    <category term="Backup" scheme="https://archgu.github.io/tags/Backup/"/>
+    <category term="Gentoo" scheme="https://archgu.github.io/tags/Gentoo/"/>
     
   </entry>
   
@@ -118,20 +144,19 @@
   </entry>
   
   <entry>
-    <title>CCache编译缓存器</title>
-    <link href="https://archgu.github.io/2023/02/11/ccache/"/>
-    <id>https://archgu.github.io/2023/02/11/ccache/</id>
+    <title>Gentoo系统备份</title>
+    <link href="https://archgu.github.io/2023/02/11/gentoo_rc/"/>
+    <id>https://archgu.github.io/2023/02/11/gentoo_rc/</id>
     <published>2023-02-11T11:21:57.220Z</published>
-    <updated>2023-02-11T13:26:58.503Z</updated>
+    <updated>2023-02-11T13:29:03.528Z</updated>
     
-    <content type="html"><![CDATA[<p>用于gentoo portage加速编译</p><p>配置make.conf</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># /etc/portage/make.conf</span></span><br><span class="line"><span class="comment"># 为portage开启编译缓存器</span></span><br><span class="line">FEATURES=<span class="string">&quot;ccache&quot;</span></span><br><span class="line">CCACHE_DIR=<span class="string">&quot;/var/cache/ccache&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># May be needed to workaround a bug, but has some security implications</span></span><br><span class="line"><span class="comment"># https://bugs.gentoo.org/492910</span></span><br><span class="line"><span class="comment">#CCACHE_UMASK=&quot;0002&quot;</span></span><br></pre></td></tr></table></figure><p>配置ccache.conf</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># /var/cache/ccache/ccache.conf</span></span><br><span class="line"><span class="comment"># Maximum cache size to maintain</span></span><br><span class="line">max_size = 100.0G</span><br><span class="line"></span><br><span class="line"><span class="comment"># Allow others to run &#x27;ebuild&#x27; and share the cache.</span></span><br><span class="line"><span class="built_in">umask</span> = 002</span><br><span class="line"></span><br><span class="line"><span class="comment"># Don&#x27;t include the current directory when calculating</span></span><br><span class="line"><span class="comment"># hashes for the cache. This allows re-use of the cache</span></span><br><span class="line"><span class="comment"># across different package versions, at the cost of</span></span><br><span class="line"><span class="comment"># slightly incorrect paths in debugging info.</span></span><br><span class="line"><span class="comment"># https://ccache.dev/manual/4.4.html#_performance</span></span><br><span class="line">hash_dir = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Preserve cache across GCC rebuilds and</span></span><br><span class="line"><span class="comment"># introspect GCC changes through GCC wrapper.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># We use -dumpversion here instead of -v,</span></span><br><span class="line"><span class="comment"># see https://bugs.gentoo.org/872971.</span></span><br><span class="line">compiler_check = %compiler% -dumpversion</span><br><span class="line"></span><br><span class="line"><span class="comment"># I expect 1.5M files. 300 files per directory.</span></span><br><span class="line">cache_dir_levels = 3</span><br><span class="line"></span><br><span class="line"><span class="comment"># Logging setup is optional</span></span><br><span class="line"><span class="comment"># Portage runs various phases as different users</span></span><br><span class="line"><span class="comment"># so beware of setting a log_file path here: the file</span></span><br><span class="line"><span class="comment"># should already exist and be writable by at least</span></span><br><span class="line"><span class="comment"># root and portage. If a log_file path is set, don&#x27;t</span></span><br><span class="line"><span class="comment"># forget to set up log rotation!</span></span><br><span class="line"><span class="comment"># log_file = /var/log/ccache.log</span></span><br><span class="line"><span class="comment"># Alternatively, log to syslog</span></span><br><span class="line"><span class="comment"># log_file = syslog</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>备份以快速恢复</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. 内核配置文件: /usr/src/linux/.config  <span class="comment">## 方便重新配置内核</span></span><br><span class="line">2. 文件安装配置: /etc/portage/make.conf以及 /etc/portage/package.* <span class="comment">## 方便配置USE flag</span></span><br><span class="line">3. 已安装文件列表: /var/lib/portage/world  <span class="comment">##方便emerge -avuDN world</span></span><br><span class="line">4. X的配置文件:  /etc/X11/xorg.conf   <span class="comment">##方便配置鼠标，显示器</span></span><br><span class="line">5. 磁盘挂载配置文件: /etc/fstab  <span class="comment">##挂载</span></span><br><span class="line">6. grub启动配置文件: /boot/grub/grub.cfg  <span class="comment">##分区启动</span></span><br><span class="line">7. ~/bashrc, ~/.xinitrc ....</span><br><span class="line">8.二进制包;/var/cache/binpkgs/ <span class="comment">#XAPK Or GAPK</span></span><br><span class="line">9.源文件: /var/cache/distfiles/</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;用于gentoo portage加速编译&lt;/p&gt;
-&lt;p&gt;配置make.conf&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span clas</summary>
+    <summary type="html">&lt;p&gt;备份以快速恢复&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1. 内核配置文件: /usr/src/linux/.config  &lt;span c</summary>
       
     
     
@@ -164,31 +189,6 @@
     
     
     <category term="Help" scheme="https://archgu.github.io/tags/Help/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Gentoo系统备份</title>
-    <link href="https://archgu.github.io/2023/02/11/gentoo_rc/"/>
-    <id>https://archgu.github.io/2023/02/11/gentoo_rc/</id>
-    <published>2023-02-11T11:21:57.220Z</published>
-    <updated>2023-02-11T13:29:03.528Z</updated>
-    
-    <content type="html"><![CDATA[<p>备份以快速恢复</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. 内核配置文件: /usr/src/linux/.config  <span class="comment">## 方便重新配置内核</span></span><br><span class="line">2. 文件安装配置: /etc/portage/make.conf以及 /etc/portage/package.* <span class="comment">## 方便配置USE flag</span></span><br><span class="line">3. 已安装文件列表: /var/lib/portage/world  <span class="comment">##方便emerge -avuDN world</span></span><br><span class="line">4. X的配置文件:  /etc/X11/xorg.conf   <span class="comment">##方便配置鼠标，显示器</span></span><br><span class="line">5. 磁盘挂载配置文件: /etc/fstab  <span class="comment">##挂载</span></span><br><span class="line">6. grub启动配置文件: /boot/grub/grub.cfg  <span class="comment">##分区启动</span></span><br><span class="line">7. ~/bashrc, ~/.xinitrc ....</span><br><span class="line">8.二进制包;/var/cache/binpkgs/ <span class="comment">#XAPK Or GAPK</span></span><br><span class="line">9.源文件: /var/cache/distfiles/</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;备份以快速恢复&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1. 内核配置文件: /usr/src/linux/.config  &lt;span c</summary>
-      
-    
-    
-    
-    <category term="Linux" scheme="https://archgu.github.io/categories/Linux/"/>
-    
-    
-    <category term="Gentoo" scheme="https://archgu.github.io/tags/Gentoo/"/>
     
   </entry>
   
