@@ -94,9 +94,9 @@
     <link href="https://archgu.github.io/2023/02/11/manjaro/"/>
     <id>https://archgu.github.io/2023/02/11/manjaro/</id>
     <published>2023-02-11T11:21:57.223Z</published>
-    <updated>2023-02-14T01:34:59.937Z</updated>
+    <updated>2023-02-14T02:55:22.750Z</updated>
     
-    <content type="html"><![CDATA[<p>使用ventory安装后,开始配置</p><p>原则:开发环境与系统隔离，系统保持最简单安装（KISS原则的一个解释）</p><h2 id="源设置"><a href="#源设置" class="headerlink" title="源设置"></a>源设置</h2><p>官方源</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman-mirrors -i -c China -m rank</span><br></pre></td></tr></table></figure><p>archlinuxcn镜像源</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># /etc/pacman.conf</span></span><br><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure><p>刷新数据库</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -Syy</span><br><span class="line">pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure><p>Note:该源对应Manjaro unstable分支，注意兼容问题</p><h2 id="区域设置"><a href="#区域设置" class="headerlink" title="区域设置"></a>区域设置</h2><p>Gnome与ibus适配</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -S manjaro-asian-input-support-ibus ibus-libpinyin</span><br></pre></td></tr></table></figure><p>KDE与fcitx5适配</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -S manjaro-asian-input-support-fcitx5</span><br><span class="line">pacman -S fcitx5-chinese-addons</span><br><span class="line">pacman -S fcitx5-material-color</span><br><span class="line">pacman -S fcitx5-pinyin-zhwiki</span><br></pre></td></tr></table></figure><p>设置环境变量</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># /etc/profile</span></span><br><span class="line"><span class="comment"># ～/.xprofile</span></span><br><span class="line"><span class="built_in">export</span> GTK_IM_MODULE=输入法名</span><br><span class="line"><span class="built_in">export</span> XMODIFIERS=<span class="string">&quot;@im=输入法名&quot;</span></span><br><span class="line"><span class="built_in">export</span> QT_IM_MODULE=输入法名</span><br></pre></td></tr></table></figure><p>配置fcitx5 material主题</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ~/.config/fcitx5/conf/classicui.conf</span></span><br><span class="line"><span class="comment"># 垂直候选列表</span></span><br><span class="line">Vertical Candidate List=False</span><br><span class="line"><span class="comment"># 按屏幕 DPI 使用</span></span><br><span class="line">PerScreenDPI=True</span><br><span class="line"><span class="comment"># Font (设置成你喜欢的字体)</span></span><br><span class="line">Font=<span class="string">&quot;Microsoft YaHei UI 14&quot;</span></span><br><span class="line"><span class="comment"># 主题</span></span><br><span class="line">Theme=Material-Color-Black</span><br></pre></td></tr></table></figure><p>字体</p><p>将Windows下的字体文件放到一个文件夹中，然后放入注释的目录中，切换到新的文件夹后，执行命令</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash</span><br><span class="line"># /usr/share/local/fonts/*</span><br><span class="line">mkfontscale</span><br><span class="line">mkfontdir</span><br><span class="line">fc-cache -fv</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>使用ventory安装后,开始配置</p><p>原则:开发环境与系统隔离，系统保持最简单安装（KISS原则的一个解释）</p><h2 id="源设置"><a href="#源设置" class="headerlink" title="源设置"></a>源设置</h2><p>官方源</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman-mirrors -i -c China -m rank</span><br></pre></td></tr></table></figure><p>archlinuxcn镜像源</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># /etc/pacman.conf</span></span><br><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure><p>刷新数据库</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -Syy</span><br><span class="line">pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure><p>Note:该源对应Manjaro unstable分支，注意兼容问题</p><h2 id="区域设置"><a href="#区域设置" class="headerlink" title="区域设置"></a>区域设置</h2><p>Gnome与ibus适配</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -S manjaro-asian-input-support-ibus ibus-libpinyin</span><br></pre></td></tr></table></figure><p>KDE与fcitx5适配</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -S manjaro-asian-input-support-fcitx5</span><br><span class="line">pacman -S fcitx5-chinese-addons</span><br><span class="line">pacman -S fcitx5-material-color</span><br><span class="line">pacman -S fcitx5-pinyin-zhwiki</span><br></pre></td></tr></table></figure><p>设置环境变量</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># /etc/profile</span></span><br><span class="line"><span class="comment"># ～/.xprofile</span></span><br><span class="line"><span class="built_in">export</span> GTK_IM_MODULE=输入法名</span><br><span class="line"><span class="built_in">export</span> XMODIFIERS=<span class="string">&quot;@im=输入法名&quot;</span></span><br><span class="line"><span class="built_in">export</span> QT_IM_MODULE=输入法名</span><br></pre></td></tr></table></figure><p>配置fcitx5 material主题</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ~/.config/fcitx5/conf/classicui.conf</span></span><br><span class="line"><span class="comment"># 垂直候选列表</span></span><br><span class="line">Vertical Candidate List=False</span><br><span class="line"><span class="comment"># 按屏幕 DPI 使用</span></span><br><span class="line">PerScreenDPI=True</span><br><span class="line"><span class="comment"># Font (设置成你喜欢的字体)</span></span><br><span class="line">Font=<span class="string">&quot;Microsoft YaHei UI 14&quot;</span></span><br><span class="line"><span class="comment"># 主题</span></span><br><span class="line">Theme=Material-Color-Black</span><br></pre></td></tr></table></figure><p>字体</p><p>将Windows下的字体文件放到一个文件夹中，然后放入注释的目录中，切换到新的文件夹后，执行命令</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># /usr/share/local/fonts/*</span></span><br><span class="line">mkfontscale</span><br><span class="line">mkfontdir</span><br><span class="line">fc-cache -fv</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
@@ -167,6 +167,31 @@
   </entry>
   
   <entry>
+    <title>Gentoo系统备份</title>
+    <link href="https://archgu.github.io/2023/02/11/gentoo_rc/"/>
+    <id>https://archgu.github.io/2023/02/11/gentoo_rc/</id>
+    <published>2023-02-11T11:21:57.220Z</published>
+    <updated>2023-02-11T13:29:03.528Z</updated>
+    
+    <content type="html"><![CDATA[<p>备份以快速恢复</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. 内核配置文件: /usr/src/linux/.config  <span class="comment">## 方便重新配置内核</span></span><br><span class="line">2. 文件安装配置: /etc/portage/make.conf以及 /etc/portage/package.* <span class="comment">## 方便配置USE flag</span></span><br><span class="line">3. 已安装文件列表: /var/lib/portage/world  <span class="comment">##方便emerge -avuDN world</span></span><br><span class="line">4. X的配置文件:  /etc/X11/xorg.conf   <span class="comment">##方便配置鼠标，显示器</span></span><br><span class="line">5. 磁盘挂载配置文件: /etc/fstab  <span class="comment">##挂载</span></span><br><span class="line">6. grub启动配置文件: /boot/grub/grub.cfg  <span class="comment">##分区启动</span></span><br><span class="line">7. ~/bashrc, ~/.xinitrc ....</span><br><span class="line">8.二进制包;/var/cache/binpkgs/ <span class="comment">#XAPK Or GAPK</span></span><br><span class="line">9.源文件: /var/cache/distfiles/</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;备份以快速恢复&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1. 内核配置文件: /usr/src/linux/.config  &lt;span c</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="https://archgu.github.io/categories/Linux/"/>
+    
+    
+    <category term="Gentoo" scheme="https://archgu.github.io/tags/Gentoo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Gentoo配置备份</title>
     <link href="https://archgu.github.io/2023/02/11/gentoo_confbk/"/>
     <id>https://archgu.github.io/2023/02/11/gentoo_confbk/</id>
@@ -181,31 +206,6 @@
     <summary type="html">&lt;p&gt;CPU:R5 2500U&lt;/p&gt;
 &lt;p&gt;GPU:核显&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#</summary>
-      
-    
-    
-    
-    <category term="Linux" scheme="https://archgu.github.io/categories/Linux/"/>
-    
-    
-    <category term="Gentoo" scheme="https://archgu.github.io/tags/Gentoo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Gentoo系统备份</title>
-    <link href="https://archgu.github.io/2023/02/11/gentoo_rc/"/>
-    <id>https://archgu.github.io/2023/02/11/gentoo_rc/</id>
-    <published>2023-02-11T11:21:57.220Z</published>
-    <updated>2023-02-11T13:29:03.528Z</updated>
-    
-    <content type="html"><![CDATA[<p>备份以快速恢复</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. 内核配置文件: /usr/src/linux/.config  <span class="comment">## 方便重新配置内核</span></span><br><span class="line">2. 文件安装配置: /etc/portage/make.conf以及 /etc/portage/package.* <span class="comment">## 方便配置USE flag</span></span><br><span class="line">3. 已安装文件列表: /var/lib/portage/world  <span class="comment">##方便emerge -avuDN world</span></span><br><span class="line">4. X的配置文件:  /etc/X11/xorg.conf   <span class="comment">##方便配置鼠标，显示器</span></span><br><span class="line">5. 磁盘挂载配置文件: /etc/fstab  <span class="comment">##挂载</span></span><br><span class="line">6. grub启动配置文件: /boot/grub/grub.cfg  <span class="comment">##分区启动</span></span><br><span class="line">7. ~/bashrc, ~/.xinitrc ....</span><br><span class="line">8.二进制包;/var/cache/binpkgs/ <span class="comment">#XAPK Or GAPK</span></span><br><span class="line">9.源文件: /var/cache/distfiles/</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;备份以快速恢复&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1. 内核配置文件: /usr/src/linux/.config  &lt;span c</summary>
       
     
     
