@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>世界，你好！ - ArchGu 的个人博客</title><meta name="description" content="Solo 博客系统已经初始化完毕，可在管理后台 - 工具 - 偏好设定中调整更多细节设置。如果需要导入已有博客文章，请参考文档 Solo 支持 Hexo/Jekyll 数据导入。 对了，出于安全考虑请尽快完成如下操作： 登录链滴社区后，在个人设置 - B3 中更新 B3 Key 在 Solo 管理后台 - 工具 - 用户管理中也进行同样的 B3 Key 更新 另外，如果你需要开启评论系统，请参考 Solo 集成 Gitalk 评论系统。 最后，如果你觉得 Solo 很赞的话，请到项目主页 Watch、Star、Fork 三连 😍"/><meta property="og:description" content="Solo 博客系统已经初始化完毕，可在管理后台 - 工具 - 偏好设定中调整更多细节设置。如果需要导入已有博客文章，请参考文档 Solo 支持 Hexo/Jekyll 数据导入。 对了，出于安全考虑请尽快完成如下操作： 登录链滴社区后，在个人设置 - B3 中更新 B3 Key 在 Solo 管理后台 - 工具 - 用户管理中也进行同样的 B3 Key 更新 另外，如果你需要开启评论系统，请参考 Solo 集成 Gitalk 评论系统。 最后，如果你觉得 Solo 很赞的话，请到项目主页 Watch、Star、Fork 三连 😍"/>    <meta name="keywords" content="Solo,Java,博客,开源"/><link rel="dns-prefetch" href="https://archgu.github.io"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://archgu.github.io"><link rel="icon" type="image/png" href="https://b3log.org/images/brand/solo-128.png"/><link rel="apple-touch-icon" href="https://b3log.org/images/brand/solo-128.png"><link rel="shortcut icon" type="image/x-icon" href="https://b3log.org/images/brand/solo-128.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="世界，你好！ - ArchGu 的个人博客"/><meta property="og:site_name" content="ArchGu 的个人博客"/><meta property="og:url"      content="https://archgu.github.io/hello-solo?"/><meta property="og:image" content="https://b3log.org/images/brand/solo-128.png"/><link rel="search" type="application/opensearchdescription+xml" title="世界，你好！ - ArchGu 的个人博客" href="/opensearch.xml"><link href="https://archgu.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://archgu.github.io/manifest.json">        <link rel="canonical" href="https://archgu.github.io/hello-solo">        <link rel="stylesheet"
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Timeshift备份 - ArchGu 的个人博客</title><meta name="description" content="timeshift有两种备份方式： 1.rsync，有点像复制粘贴备份，比较无脑 2.btrfs文件系统的一个特性，启用该备份方式必须在Linux安装阶段就开始配置，不然比较麻烦。 首先创建btrfs文件系统后，挂载分区并进入分区的根目录创建子卷： btrfs subvolume create ./@ #挂载点为/ home分区同上： btrfs subvolume create ./@home #挂载点为/home chroot时需挂载子卷，具体原因见FHS（LInux文件目录标准）： mount -t btrfs -o subvol=/@ ... mount -t btrfs -o subvol=/@home ... 同样，/etc/fstab也需挂载子卷。 安装好系统后再配置时需要重新配置grub，并移动大量的文件，这就是本文开始时说明的麻烦的地方。"/><meta property="og:description" content="timeshift有两种备份方式： 1.rsync，有点像复制粘贴备份，比较无脑 2.btrfs文件系统的一个特性，启用该备份方式必须在Linux安装阶段就开始配置，不然比较麻烦。 首先创建btrfs文件系统后，挂载分区并进入分区的根目录创建子卷： btrfs subvolume create ./@ #挂载点为/ home分区同上： btrfs subvolume create ./@home #挂载点为/home chroot时需挂载子卷，具体原因见FHS（LInux文件目录标准）： mount -t btrfs -o subvol=/@ ... mount -t btrfs -o subvol=/@home ... 同样，/etc/fstab也需挂载子卷。 安装好系统后再配置时需要重新配置grub，并移动大量的文件，这就是本文开始时说明的麻烦的地方。"/>    <meta name="keywords" content="Solo,Java,博客,开源"/><link rel="dns-prefetch" href="https://archgu.github.io"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://archgu.github.io"><link rel="icon" type="image/png" href="https://b3log.org/images/brand/solo-128.png"/><link rel="apple-touch-icon" href="https://b3log.org/images/brand/solo-128.png"><link rel="shortcut icon" type="image/x-icon" href="https://b3log.org/images/brand/solo-128.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Timeshift备份 - ArchGu 的个人博客"/><meta property="og:site_name" content="ArchGu 的个人博客"/><meta property="og:url"      content="https://archgu.github.io/articles/2023/02/19/1676741720750.html?"/><meta property="og:image" content="https://b3log.org/images/brand/solo-128.png"/><link rel="search" type="application/opensearchdescription+xml" title="Timeshift备份 - ArchGu 的个人博客" href="/opensearch.xml"><link href="https://archgu.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://archgu.github.io/manifest.json">        <link rel="canonical" href="https://archgu.github.io/articles/2023/02/19/1676741720750.html">        <link rel="stylesheet"
               href="https://archgu.github.io/skins/Casper/css/base.css?1676741532443"/>
-            <link rel="next" title="Manjaro" href="https://archgu.github.io/articles/2023/02/19/1676741720566.html">
+            <link rel="prev" title="Manjaro" href="https://archgu.github.io/articles/2023/02/19/1676741720566.html">
+            <link rel="next" title="Spacevim备份" href="https://archgu.github.io/articles/2023/02/19/1676741721089.html">
     <script src="https://cdn.jsdelivr.net/npm/vditor@3.8.4/dist/js/icons/ant.js" async="" id="vditorIconScript"></script></head>
 <body class="fn__flex-column">
 <div id="pjax" class="fn__flex-1">
@@ -46,11 +47,11 @@
     <div class="article__top">
         <div class="fn__clear">
             <div class="toc fn__none" onclick="$('.post__toc').slideToggle()">目录</div>
-            <div class="title fn__pointer" onclick="Util.goTop()">世界，你好！</div>
+            <div class="title fn__pointer" onclick="Util.goTop()">Timeshift备份</div>
 <div class="article__share"
-     data-title="世界，你好！"
+     data-title="Timeshift备份"
      data-blogtitle="ArchGu 的个人博客"
-     data-url="https://archgu.github.io/hello-solo"
+     data-url="https://archgu.github.io/articles/2023/02/19/1676741720750.html"
      data-avatar="https://b3logfile.com/avatar/1676712948893_1676713017172.png?imageView2/1/w/128/h/128/interlace/0/q/100">
     <span class="item" data-type="qqz">
         <svg viewBox="0 0 32 32" width="100%" height="100%">
@@ -87,30 +88,36 @@
                 </time>
                 /
                     <a class="tag" rel="tag"
-                       href="https://archgu.github.io/tags/Solo">Solo</a> &nbsp;
+                       href="https://archgu.github.io/tags/Backup">Backup</a> &nbsp;
             </div>
             <h2 class="item__title">
-                世界，你好！
+                Timeshift备份
             </h2>
         </div>
-        <div class="item__cover" style="background-image: url(https://b3logfile.com/bing/20181202.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)"></div>
+        <div class="item__cover" style="background-image: url(https://b3logfile.com/bing/20220208.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100)"></div>
         <div class="wrapper">
             <section class="item__content item__content--article vditor-reset">
-                <p><img src="https://b3logfile.com/bing/20181202.jpg?imageView2/1/w/1280/h/720/interlace/1/q/100" alt=""></p>
-<p>Solo 博客系统已经初始化完毕，可在管理后台 - 工具 - 偏好设定中调整更多细节设置。如果需要导入已有博客文章，请参考文档 <a href="https://ld246.com/article/1498490209748" target="_blank">Solo 支持 Hexo/Jekyll 数据导入</a>。</p>
-<p>对了，出于安全考虑请尽快完成如下操作：</p>
-<ol>
-<li>登录链滴社区后，在<a href="https://ld246.com/settings/b3" target="_blank">个人设置 - B3</a> 中更新 B3 Key</li>
-<li>在 Solo 管理后台 - 工具 - 用户管理中也进行同样的 B3 Key 更新</li>
-</ol>
-<p>另外，如果你需要开启评论系统，请参考 <a href="https://ld246.com/article/1594988019287" target="_blank">Solo 集成 Gitalk 评论系统</a>。</p>
-<p>最后，如果你觉得 Solo 很赞的话，请到<a href="https://github.com/88250/solo" target="_blank">项目主页</a> Watch、Star、Fork 三连 😍</p>
+                <p>timeshift有两种备份方式：</p>
+<p>1.rsync，有点像复制粘贴备份，比较无脑</p>
+<p>2.btrfs文件系统的一个特性，启用该备份方式必须在Linux安装阶段就开始配置，不然比较麻烦。</p>
+<p>首先创建btrfs文件系统后，挂载分区并进入分区的根目录创建子卷：</p>
+<pre><code class="language-bash">btrfs subvolume create ./@ #挂载点为/
+</code></pre>
+<p>home分区同上：</p>
+<pre><code class="language-bash">btrfs subvolume create ./@home #挂载点为/home
+</code></pre>
+<p>chroot时需挂载子卷，具体原因见FHS（LInux文件目录标准）：</p>
+<pre><code class="language-bash">mount -t btrfs -o subvol=/@ ...
+mount -t btrfs -o subvol=/@home ...
+</code></pre>
+<p>同样，/etc/fstab也需挂载子卷。<br>
+安装好系统后再配置时需要重新配置grub，并移动大量的文件，这就是本文开始时说明的麻烦的地方。</p>
                     <div>
                         <hr>
 
-标题：世界，你好！<br>
+标题：Timeshift备份<br>
 作者：<a href="https://archgu.github.io" target="_blank">ArchGu</a><br>
-地址：<a href="https://archgu.github.io/hello-solo" target="_blank">https://archgu.github.io/hello-solo</a><br>
+地址：<a href="https://archgu.github.io/articles/2023/02/19/1676741720750.html" target="_blank">https://archgu.github.io/articles/2023/02/19/1676741720750.html</a><br>
 
 <!-- 签名档内可使用 HTML、JavaScript -->
 <br>
@@ -120,7 +127,7 @@
     </div>
         <div id="gitalk-container" class="comment__wrapper wrapper" style="margin: 40px auto"></div>
         <div id="b3logsolocomments"></div>
-        <div id="vcomment" class="comment__wrapper wrapper" style="margin: 40px auto" data-name="ArchGu" data-postId="1676740157392"></div>
+        <div id="vcomment" class="comment__wrapper wrapper" style="margin: 40px auto" data-name="ArchGu" data-postId="1676741720750"></div>
     <div class="article__bottom">
         <div class="wrapper">
             <div class="fn__flex">
@@ -170,7 +177,7 @@
     version: "4.4.0",
     staticSite: true,
     showCodeBlockLn: false,
-    articleId: "1676740157392",
+    articleId: "1676741720750",
   }
 </script>
 <script type="text/javascript"
@@ -211,7 +218,7 @@
     Util.addScript('https://archgu.github.io/js/page.min.js?1676741532443', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论不能为空",
-        "oId": "1676740157392",
+        "oId": "1676741720750",
         "blogHost": "https://archgu.github.io",
         "randomArticles1Label": "随机阅读：",
         "externalRelevantArticles1Label": "站外相关阅读："
@@ -220,7 +227,7 @@
         page.load();
     page.tips.externalRelevantArticlesDisplayCount = "0";
         page.loadRandomArticles('<h3>随机阅读</h3>');
-        page.loadRelevantArticles('1676740157392', '<h3>相关阅读</h3>');
+        page.loadRelevantArticles('1676741720750', '<h3>相关阅读</h3>');
     Skin.initArticle()
     });
 </script>
@@ -228,4 +235,4 @@
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 63ms, 2023/02/19 01:35:51 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 61ms, 2023/02/19 01:35:51 -->
