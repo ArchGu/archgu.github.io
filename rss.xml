@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>ArchGu 的个人博客</title>
+    <link>https://archgu.github.io</link>
+    <atom:link href="https://archgu.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+    <description>记录精彩的程序人生</description>
+    <generator>Solo, v4.4.0, https://b3log.org/solo</generator>
+    <lastBuildDate>Sun, 19 Feb 2023 01:11:12 +0800</lastBuildDate>
+    <language>zh-cn</language>
+    <item>
+      <title>Linux与Windows双系统时间不同步</title>
+      <link>https://archgu.github.io/articles/2023/02/19/1676740228000.html</link>
+      <description><![CDATA[<p>方法： Windows下编辑注册表,在HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation中添加一个名称为“RealTimeIsUniversal”的QWORD（64位）值，修改16位的值为1即可。 # HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation RealTimeIsUniversal: Type：QWORD（64位）#视系统而定，32位为QWORD（32位） Value：1 #16位数值  原文链接：原文</p>]]></description>
+      <author>ArchGu</author>
+      <guid>https://archgu.github.io/articles/2023/02/19/1676740228000.html</guid>
+      <category>Time</category>
+      <pubDate>Sun, 19 Feb 2023 01:10:27 +0800</pubDate>
+    </item>
+    <item>
+      <title>CCache编译缓存器</title>
+      <link>https://archgu.github.io/articles/2023/02/19/1676740227953.html</link>
+      <description><![CDATA[<p>用于gentoo portage加速编译 配置make.conf # /etc/portage/make.conf # 为portage开启编译缓存器 FEATURES="ccache" CCACHE_DIR="/var/cache/ccache" # May be needed to workaround a bug, but has some security implications # <a href="https://bugs.gentoo.org/492910" target="_blank">https://bugs.gentoo.org/492910</a> #CCACHE_UMASK="0002"  配置ccache.conf # /var/cache/ccache/ccache.conf # Maximum cache size to maintain max_size = 100.0G # Allow others to run 'ebuild' and share the cache. umask = 002 # Don't include the current directory when calculating # hashes for the cache. This all....</p>]]></description>
+      <author>ArchGu</author>
+      <guid>https://archgu.github.io/articles/2023/02/19/1676740227953.html</guid>
+      <category>Gentoo</category>
+      <pubDate>Sun, 19 Feb 2023 01:10:27 +0800</pubDate>
+    </item>
+    <item>
+      <title>卤味之川卤</title>
+      <link>https://archgu.github.io/articles/2023/02/19/1676740227722.html</link>
+      <description><![CDATA[<p>中国卤味有很多派系，不过这里记录川卤 分类:辣卤，油卤，半油卤 香料油 1.油加热到200度，关火，降温到150度后放入葱姜蒜等湿料。 2.用中小火炸干后捞出，得香料油。 辣卤 1.油温120度，放入用水泡过的干料和基于豆瓣酱的卤料(如需加辣椒和花椒也是这样) 2.油温80度，放入香料粉(最易糊) 3.放入冰糖和卤水汁(上色，可用生抽替代) 4.放入高汤 5.可放入鸡精和耗油(可放可不放) 完成 卤油 1.油温120度，放入用水泡过的干料和基于豆瓣酱的卤料(如需加辣椒和花椒也是这样) 2.油温80度，放入香料粉(最易糊) 3.放入鸡精，花椒油，藤椒油(不宜高温) 完成 油卤 就是用辣卤卤过后，放入温热的卤油中卤一个小时以上。</p>]]></description>
+      <author>ArchGu</author>
+      <guid>https://archgu.github.io/articles/2023/02/19/1676740227722.html</guid>
+      <category>ChuanCai</category>
+      <pubDate>Sun, 19 Feb 2023 01:10:27 +0800</pubDate>
+    </item>
+    <item>
+      <title>胶囊咖啡粒径分布初探</title>
+      <link>https://archgu.github.io/articles/2023/02/19/1676740227634.html</link>
+      <description><![CDATA[<p>通过筛粉器初筛后，确定了以下： 1.250微米以下的极细粉对萃取时水的流速影响非常大 2.500微米筛后不适合滴滤，反而适合浸泡 胶囊咖啡粒径分布推断： 1.胶囊咖啡过500微米筛时仍有残留，粉径比一般意义上的意式的粉径大 2.过250筛后，萃取困难，粒径应大于250 3.一致性比一般的手摇磨豆机好 推断粒径分布大约为350微米-550微米</p>]]></description>
+      <author>ArchGu</author>
+      <guid>https://archgu.github.io/articles/2023/02/19/1676740227634.html</guid>
+      <category>Nespresso</category>
+      <pubDate>Sun, 19 Feb 2023 01:10:27 +0800</pubDate>
+    </item>
+    <item>
+      <title>Gentoo配置备份</title>
+      <link>https://archgu.github.io/articles/2023/02/19/1676740227617.html</link>
+      <description><![CDATA[<p>CPU:R5 2500U GPU:核显 ## /etc/portage/make.conf # These settings were set by the catalyst build script that automatically # built this stage. # Please consult /usr/share/portage/config/make.conf.example for a more # detailed example. COMMON_FLAGS="-march=native -O2 -pipe" CFLAGS="${COMMON_FLAGS}" CXXFLAGS="${COMMON_FLAGS}" FCFLAGS="${COMMON_FLAGS}" FFLAGS="${COMMON_FLAGS}" MAKEOPTS="-j3" VIDEO_CARDS="amdgpu radeonsi" INPUT_DEVICES="evdev synaptics" L10N="en-US zh-CN en zh" LANGUAS="en-US zh_CN en ....</p>]]></description>
+      <author>ArchGu</author>
+      <guid>https://archgu.github.io/articles/2023/02/19/1676740227617.html</guid>
+      <category>Gentoo</category>
+      <pubDate>Sun, 19 Feb 2023 01:10:27 +0800</pubDate>
+    </item>
+    <item>
+      <title>Gentoo系统备份</title>
+      <link>https://archgu.github.io/articles/2023/02/19/1676740227515.html</link>
+      <description><![CDATA[<p>备份以快速恢复 1. 内核配置文件: /usr/src/linux/.config ## 方便重新配置内核 2. 文件安装配置: /etc/portage/make.conf以及 /etc/portage/package.* ## 方便配置USE flag 3. 已安装文件列表: /var/lib/portage/world ##方便emerge -avuDN world 4. X的配置文件: /etc/X11/xorg.conf ##方便配置鼠标，显示器 5. 磁盘挂载配置文件: /etc/fstab ##挂载 6. grub启动配置文件: /boot/grub/grub.cfg ##分区启动 7. ~/bashrc, ~/.xinitrc .... 8.二进制包;/var/cache/binpkgs/ #XAPK Or GAPK 9.源文件: /var/cache/distfiles/</p>]]></description>
+      <author>ArchGu</author>
+      <guid>https://archgu.github.io/articles/2023/02/19/1676740227515.html</guid>
+      <category>Gentoo</category>
+      <pubDate>Sun, 19 Feb 2023 01:10:27 +0800</pubDate>
+    </item>
+    <item>
+      <title>Hello World</title>
+      <link>https://archgu.github.io/articles/2023/02/19/1676740227201.html</link>
+      <description><![CDATA[<p>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick Start Create a new post $ hexo new "My New Post"  More info: Writing Run server $ hexo server  More info: Server Generate static files $ hexo generate  More info: Generating Deploy to remote sites $ hexo deploy  More info: Deployment</p>]]></description>
+      <author>ArchGu</author>
+      <guid>https://archgu.github.io/articles/2023/02/19/1676740227201.html</guid>
+      <category>Help</category>
+      <pubDate>Sun, 19 Feb 2023 01:10:27 +0800</pubDate>
+    </item>
+    <item>
+      <title>NextCloud文件同步及性能优化</title>
+      <link>https://archgu.github.io/articles/2023/02/19/1676740227007.html</link>
+      <description><![CDATA[<p>文件同步问题 文件同步问题主要有两种： 1.文件大小限制 原因是Nginx而不是NextCloud，官方的限制是512MiB，修改Nginx的配置文件： client_max_body_size 1024m  2.大文件同步超时造成同步失败，同样是Nginx的问题，修改Nginx的配置文件： fastcgi_read_timeout 600; fastcgi_send_timeout 600; fastcgi_connect_timeout 600; proxy_connect_timeout 600; proxy_send_timeout 600; proxy_read_timeout 600; send_timeout 600;  性能优化 1.php内存小于512MiB: memory_limit = 1024M  更多内容请见参考原文： 原文</p>]]></description>
+      <author>ArchGu</author>
+      <guid>https://archgu.github.io/articles/2023/02/19/1676740227007.html</guid>
+      <category>Config</category>
+      <pubDate>Sun, 19 Feb 2023 01:10:26 +0800</pubDate>
+    </item>
+    <item>
+      <title>Linux与Windows双系统时间不同步</title>
+      <link>https://archgu.github.io/articles/2023/02/19/1676740226915.html</link>
+      <description><![CDATA[<p>方法： Windows下编辑注册表,在HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation中添加一个名称为“RealTimeIsUniversal”的QWORD（64位）值，修改16位的值为1即可。 # HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation RealTimeIsUniversal: Type：QWORD（64位）#视系统而定，32位为QWORD（32位） Value：1 #16位数值  原文链接：原文</p>]]></description>
+      <author>ArchGu</author>
+      <guid>https://archgu.github.io/articles/2023/02/19/1676740226915.html</guid>
+      <category>Time</category>
+      <pubDate>Sun, 19 Feb 2023 01:10:26 +0800</pubDate>
+    </item>
+    <item>
+      <title>Spacevim备份</title>
+      <link>https://archgu.github.io/articles/2023/02/19/1676740226782.html</link>
+      <description><![CDATA[<p>Spacevim配置文件为： # ~/.config/nvim ~/.SpaceVim的链接 # ~/.cache/vim # ~/.cache/vimfiles/repos github插件存储位置 # ~/.cache/SpaceVim # ~/.SpaceVim spacevim 主体文件 # ~/.SpaceVim.d/init.toml 配置文件 # ~/.vim ~/.SpaceVim的链接</p>]]></description>
+      <author>ArchGu</author>
+      <guid>https://archgu.github.io/articles/2023/02/19/1676740226782.html</guid>
+      <category>Backup</category>
+      <pubDate>Sun, 19 Feb 2023 01:10:26 +0800</pubDate>
+    </item>
+  </channel>
+</rss>
