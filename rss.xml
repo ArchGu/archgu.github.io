@@ -6,7 +6,7 @@
     <atom:link href="https://archgu.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     <description>记录精彩的程序人生</description>
     <generator>Solo, v4.4.0, https://b3log.org/solo</generator>
-    <lastBuildDate>Sun, 19 Feb 2023 01:35:51 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 19 Feb 2023 12:48:56 +0800</lastBuildDate>
     <language>zh-cn</language>
     <item>
       <title>Linux与Windows双系统时间不同步</title>
