@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>CCache编译缓存器 - ArchGu 的个人博客</title><meta name="description" content="用于gentoo portage加速编译 配置make.conf # /etc/portage/make.conf # 为portage开启编译缓存器 FEATURES=&quot;ccache&quot; CCACHE_DIR=&quot;/var/cache/ccache&quot; # May be needed to workaround a bug, but has some security implications # https://bugs.gentoo.org/492910 #CCACHE_UMASK=&quot;0002&quot; 配置ccache.conf # /var/cache/ccache/ccache.conf # Maximum cache size to maintain max_size = 100.0G # Allow others to run &#39;ebuild&#39; and share the cache. umask = 002 # Don&#39;t include the current directory when calculating # hashes for the cache. This all...."/><meta property="og:description" content="用于gentoo portage加速编译 配置make.conf # /etc/portage/make.conf # 为portage开启编译缓存器 FEATURES=&quot;ccache&quot; CCACHE_DIR=&quot;/var/cache/ccache&quot; # May be needed to workaround a bug, but has some security implications # https://bugs.gentoo.org/492910 #CCACHE_UMASK=&quot;0002&quot; 配置ccache.conf # /var/cache/ccache/ccache.conf # Maximum cache size to maintain max_size = 100.0G # Allow others to run &#39;ebuild&#39; and share the cache. umask = 002 # Don&#39;t include the current directory when calculating # hashes for the cache. This all...."/>    <meta name="keywords" content="Solo,Java,博客,开源"/><link rel="dns-prefetch" href="https://archgu.github.io"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://archgu.github.io"><link rel="icon" type="image/png" href="https://b3log.org/images/brand/solo-128.png"/><link rel="apple-touch-icon" href="https://b3log.org/images/brand/solo-128.png"><link rel="shortcut icon" type="image/x-icon" href="https://b3log.org/images/brand/solo-128.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="CCache编译缓存器 - ArchGu 的个人博客"/><meta property="og:site_name" content="ArchGu 的个人博客"/><meta property="og:url"      content="https://archgu.github.io/articles/2023/02/19/1676741722113.html?"/><meta property="og:image" content="https://b3log.org/images/brand/solo-128.png"/><link rel="search" type="application/opensearchdescription+xml" title="CCache编译缓存器 - ArchGu 的个人博客" href="/opensearch.xml"><link href="https://archgu.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://archgu.github.io/manifest.json">        <link rel="canonical" href="https://archgu.github.io/articles/2023/02/19/1676741722113.html">        <link rel="stylesheet"
-              href="https://archgu.github.io/skins/9IPHP/css/base.css?1676781966380"/>
+              href="https://archgu.github.io/skins/9IPHP/css/base.css?1676984095967"/>
             <link rel="prev" title="卤味之川卤" href="https://archgu.github.io/articles/2023/02/19/1676741722092.html">
             <link rel="next" title="Linux与Windows双系统时间不同步" href="https://archgu.github.io/articles/2023/02/19/1676741722191.html">
     <script src="https://cdn.jsdelivr.net/npm/vditor@3.8.4/dist/js/icons/ant.js" async="" id="vditorIconScript"></script></head>
@@ -242,6 +242,11 @@ cache_dir_levels = 3
                        aria-label="2 篇文章">
                         Backup</a>
                     <a rel="tag"
+                       href="https://archgu.github.io/tags/Help"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        Help</a>
+                    <a rel="tag"
                        href="https://archgu.github.io/tags/Manjaro"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
@@ -251,11 +256,6 @@ cache_dir_levels = 3
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         Config</a>
-                    <a rel="tag"
-                       href="https://archgu.github.io/tags/Help"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="1 篇文章">
-                        Help</a>
                     <a rel="tag"
                        href="https://archgu.github.io/tags/Nespresso"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
@@ -295,7 +295,7 @@ cache_dir_levels = 3
                 <img src="https://b3logfile.com/avatar/1676712948893_1676713017172.png?imageView2/1/w/128/h/128/interlace/0/q/100" alt="ArchGu" aria-label="ArchGu"/>
                 <div class="fn-right">
                     <a href="https://archgu.github.io/archives.html">
-                        11
+                        12
                         <span class="ft-gray">文章</span></a><br/>
                     <span data-uvstaturl="https://archgu.github.io">0</span> <span class="ft-gray">浏览</span>
                     
@@ -310,8 +310,8 @@ cache_dir_levels = 3
                     <ul>
                                 <li>
                                         <a href="https://archgu.github.io/archives/2023/02"
-                                           title="2023 年 02 月(11)">
-                                            2023 年 02 月(11)</a>
+                                           title="2023 年 02 月(12)">
+                                            2023 年 02 月(12)</a>
                                 </li>
                     </ul>
                 </main>
@@ -341,7 +341,7 @@ cache_dir_levels = 3
     articleId: "1676741722113",
   }
 </script>
-<script src="https://archgu.github.io/skins/9IPHP/js/common.min.js?1676781966380"></script>
+<script src="https://archgu.github.io/skins/9IPHP/js/common.min.js?1676984095967"></script>
 <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.10/index.css"/>
 <script async src="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.10/index.js"></script>
 <div class="solo-kanbanniang">
@@ -373,7 +373,7 @@ cache_dir_levels = 3
 </div>
 
 <script type="text/javascript">
-    Util.addScript('https://archgu.github.io/js/page.min.js?1676781966380', 'soloPageScript')
+    Util.addScript('https://archgu.github.io/js/page.min.js?1676984095967', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论不能为空",
         "oId": "1676741722113",
@@ -393,4 +393,4 @@ cache_dir_levels = 3
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 31ms, 2023/02/19 12:48:56 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 20ms, 2023/02/21 21:33:10 -->
