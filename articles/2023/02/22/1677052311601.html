@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>NextCloud文件同步及性能优化 - ArchGu 的个人博客</title><meta name="description" content="文件同步问题 文件同步问题主要有两种： 1.文件大小限制 原因是Nginx而不是NextCloud，官方的限制是512MiB，修改Nginx的配置文件： client_max_body_size 1024m 2.大文件同步超时造成同步失败，同样是Nginx的问题，修改Nginx的配置文件： fastcgi_read_timeout 600; fastcgi_send_timeout 600; fastcgi_connect_timeout 600; proxy_connect_timeout 600; proxy_send_timeout 600; proxy_read_timeout 600; send_timeout 600; 性能优化 1.php内存小于512MiB: memory_limit = 1024M 更多内容请见参考原文： 原文"/><meta property="og:description" content="文件同步问题 文件同步问题主要有两种： 1.文件大小限制 原因是Nginx而不是NextCloud，官方的限制是512MiB，修改Nginx的配置文件： client_max_body_size 1024m 2.大文件同步超时造成同步失败，同样是Nginx的问题，修改Nginx的配置文件： fastcgi_read_timeout 600; fastcgi_send_timeout 600; fastcgi_connect_timeout 600; proxy_connect_timeout 600; proxy_send_timeout 600; proxy_read_timeout 600; send_timeout 600; 性能优化 1.php内存小于512MiB: memory_limit = 1024M 更多内容请见参考原文： 原文"/>    <meta name="keywords" content="Solo,Java,博客,开源"/><link rel="dns-prefetch" href="https://archgu.github.io"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://archgu.github.io"><link rel="icon" type="image/png" href="https://b3log.org/images/brand/solo-128.png"/><link rel="apple-touch-icon" href="https://b3log.org/images/brand/solo-128.png"><link rel="shortcut icon" type="image/x-icon" href="https://b3log.org/images/brand/solo-128.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="NextCloud文件同步及性能优化 - ArchGu 的个人博客"/><meta property="og:site_name" content="ArchGu 的个人博客"/><meta property="og:url"      content="https://archgu.github.io/articles/2023/02/19/1676741721235.html?"/><meta property="og:image" content="https://b3log.org/images/brand/solo-128.png"/><link rel="search" type="application/opensearchdescription+xml" title="NextCloud文件同步及性能优化 - ArchGu 的个人博客" href="/opensearch.xml"><link href="https://archgu.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://archgu.github.io/manifest.json">        <link rel="canonical" href="https://archgu.github.io/articles/2023/02/19/1676741721235.html">        <link rel="stylesheet"
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>硬件开发以及桌面端开发的区别 - ArchGu 的个人博客</title><meta name="description" content="硬件开发涉及底层，得从编译器说起。"/><meta property="og:description" content="硬件开发涉及底层，得从编译器说起。"/>    <meta name="keywords" content="Solo,Java,博客,开源"/><link rel="dns-prefetch" href="https://archgu.github.io"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://archgu.github.io"><link rel="icon" type="image/png" href="https://b3log.org/images/brand/solo-128.png"/><link rel="apple-touch-icon" href="https://b3log.org/images/brand/solo-128.png"><link rel="shortcut icon" type="image/x-icon" href="https://b3log.org/images/brand/solo-128.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="硬件开发以及桌面端开发的区别 - ArchGu 的个人博客"/><meta property="og:site_name" content="ArchGu 的个人博客"/><meta property="og:url"      content="https://archgu.github.io/articles/2023/02/22/1677052311601.html?"/><meta property="og:image" content="https://b3log.org/images/brand/solo-128.png"/><link rel="search" type="application/opensearchdescription+xml" title="硬件开发以及桌面端开发的区别 - ArchGu 的个人博客" href="/opensearch.xml"><link href="https://archgu.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://archgu.github.io/manifest.json">        <link rel="canonical" href="https://archgu.github.io/articles/2023/02/22/1677052311601.html">        <link rel="stylesheet"
               href="https://archgu.github.io/skins/9IPHP/css/base.css?1677051321068"/>
-            <link rel="prev" title="Spacevim备份" href="https://archgu.github.io/articles/2023/02/19/1676741721089.html">
-            <link rel="next" title="Hello World" href="https://archgu.github.io/articles/2023/02/19/1676741721455.html">
+            <link rel="prev" title="Solo博客本地部署" href="https://archgu.github.io/articles/2023/02/21/1676986264421.html">
     <script src="https://cdn.jsdelivr.net/npm/vditor@3.8.4/dist/js/icons/ant.js" async="" id="vditorIconScript"></script></head>
 <body>
 <header>
@@ -79,8 +78,8 @@
             <article class="post">
                 <header>
                     <h2>
-                        <a rel="bookmark" href="https://archgu.github.io/articles/2023/02/19/1676741721235.html">
-                            NextCloud文件同步及性能优化
+                        <a rel="bookmark" href="https://archgu.github.io/articles/2023/02/22/1677052311601.html">
+                            硬件开发以及桌面端开发的区别
                         </a>
                     </h2>
                     <div class="meta">
@@ -88,51 +87,36 @@
                                       aria-label="创建日期">
                                     <i class="icon-date"></i>
                                     <time>
-                                    2023-02-19
+                                    2023-02-22
                                     </time>
                                 </span>
                         &nbsp; | &nbsp;
                         <span class="vditor-tooltipped vditor-tooltipped__n" aria-label="评论数">
                                     <i class="icon-comments"></i>
-                                    <a href="https://archgu.github.io/articles/2023/02/19/1676741721235.html#b3logsolocomments">
-                                        <span data-uvstatcmt="1676741721235">0</span> 评论</a>
+                                    <a href="https://archgu.github.io/articles/2023/02/22/1677052311601.html#b3logsolocomments">
+                                        <span data-uvstatcmt="1677052311601">0</span> 评论</a>
                                 </span>
                         &nbsp; | &nbsp;
                         <span class="vditor-tooltipped vditor-tooltipped__n" aria-label="浏览数">
                                     <i class="icon-views"></i>
-                        <span data-uvstaturl="https://archgu.github.io/articles/2023/02/19/1676741721235.html">0</span> 浏览
+                        <span data-uvstaturl="https://archgu.github.io/articles/2023/02/22/1677052311601.html">0</span> 浏览
                                 </span>
                     </div>
                 </header>
 
                 <div class="vditor-reset post__content">
-                    <h2 id="toc_h2_0">文件同步问题</h2>
-<p>文件同步问题主要有两种：<br>
-1.文件大小限制<br>
-原因是Nginx而不是NextCloud，官方的限制是512MiB，修改Nginx的配置文件：</p>
-<pre><code class="language-bash">client_max_body_size 1024m
-</code></pre>
-<p>2.大文件同步超时造成同步失败，同样是Nginx的问题，修改Nginx的配置文件：</p>
-<pre><code class="language-bash">fastcgi_read_timeout 600;
-fastcgi_send_timeout 600;
-fastcgi_connect_timeout 600;
-proxy_connect_timeout 600;
-proxy_send_timeout 600;
-proxy_read_timeout 600;
-send_timeout 600;
-</code></pre>
-<h2 id="toc_h2_1">性能优化</h2>
-<p>1.php内存小于512MiB:</p>
-<pre><code class="language-bash">memory_limit = 1024M
-</code></pre>
-<p>更多内容请见参考原文：<br>
-<a href="https://blog.csdn.net/W_Wstill/article/details/120377189" target="_blank">原文</a></p>
+                    <p>硬件开发涉及底层，得从编译器说起。</p>
+<p>最初C语言编译器诞生时是没有操作系统的，且编译器不需要操作系统也能完成编译器的自举，这时这两种开发就已经出现区别了：</p>
+<ol>
+<li>桌面端开发依赖操作系统API，而硬件开发是没有操作系统的，就算是嵌入式开发中有操作系统，使用的也是RTOS，定制的LInux内核等等，不过也有嵌入式开发使用QT作为图形界面的。</li>
+<li>桌面端开发一般不涉及硬件驱动开发，且需要的API在操作系统或者桌面端开发框架中封装好了；硬件开发需要设计电路，并为设计的电路编写驱动。</li>
+</ol>
                         <div>
                             <hr>
 
-标题：NextCloud文件同步及性能优化<br>
+标题：硬件开发以及桌面端开发的区别<br>
 作者：<a href="https://archgu.github.io" target="_blank">ArchGu</a><br>
-地址：<a href="https://archgu.github.io/articles/2023/02/19/1676741721235.html" target="_blank">https://archgu.github.io/articles/2023/02/19/1676741721235.html</a><br>
+地址：<a href="https://archgu.github.io/articles/2023/02/22/1677052311601.html" target="_blank">https://archgu.github.io/articles/2023/02/22/1677052311601.html</a><br>
 
 <!-- 签名档内可使用 HTML、JavaScript -->
 <br>
@@ -140,19 +124,19 @@ send_timeout 600;
                 </div>
 
                 <footer class="tags">
-                        <a class="tag" rel="tag" href="https://archgu.github.io/tags/Config">
-                            Config</a>
+                        <a class="tag" rel="tag" href="https://archgu.github.io/tags/Development">
+                            Development</a>
 
                     <div class="rel fn-clear ft__center">
-                            <a href="https://archgu.github.io/articles/2023/02/19/1676741721089.html" rel="prev"
+                            <a href="https://archgu.github.io/articles/2023/02/21/1676986264421.html" rel="prev"
                                class="fn-left vditor-tooltipped vditor-tooltipped__n"
-                               aria-label="Spacevim备份">
+                               aria-label="Solo博客本地部署">
                                 旧一篇
                             </a>
 <div class="article__share"
-     data-title="NextCloud文件同步及性能优化"
+     data-title="硬件开发以及桌面端开发的区别"
      data-blogtitle="ArchGu 的个人博客"
-     data-url="https://archgu.github.io/articles/2023/02/19/1676741721235.html"
+     data-url="https://archgu.github.io/articles/2023/02/22/1677052311601.html"
      data-avatar="https://b3logfile.com/avatar/1676712948893_1676713017172.png?imageView2/1/w/128/h/128/interlace/0/q/100">
     <span class="item" data-type="qqz">
         <svg viewBox="0 0 32 32" width="100%" height="100%">
@@ -178,16 +162,11 @@ send_timeout 600;
         </svg>
     </span>
     <span class="item__qr"></span>
-</div>                            <a href="https://archgu.github.io/articles/2023/02/19/1676741721455.html" rel="next"
-                               class="fn-right vditor-tooltipped vditor-tooltipped__n"
-                               aria-label="Hello World">
-                                新一篇
-                            </a>
-                    </div>
+</div>                    </div>
                 </footer>
                     <div id="gitalk-container"></div>
                     <div id="b3logsolocomments"></div>
-                    <div id="vcomment" data-name="ArchGu" data-postId="1676741721235"></div>
+                    <div id="vcomment" data-name="ArchGu" data-postId="1677052311601"></div>
                 <br>
                 <div id="externalRelevantArticles" class="list"></div>
                 <div id="relevantArticles" class="list"></div>
@@ -195,14 +174,110 @@ send_timeout 600;
             </article>
         </main>
 <aside>
-<ul class="article__toc">
-        <li class="toc__h2">
-            <a href="#toc_h2_0">文件同步问题</a>
-        </li>
-        <li class="toc__h2">
-            <a href="#toc_h2_1">性能优化</a>
-        </li>
-</ul></aside>
+    <section>
+        <div class="ad vditor-reset">
+            Open Source, Open Mind, <br/>Open Sight, Open Future!
+
+<!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+        </div>
+
+
+        <div class="module">
+            <header><h2>标签</h2></header>
+            <main>
+                    <a rel="tag"
+                       href="https://archgu.github.io/tags/Gentoo"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        Gentoo</a>
+                    <a rel="tag"
+                       href="https://archgu.github.io/tags/Backup"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        Backup</a>
+                    <a rel="tag"
+                       href="https://archgu.github.io/tags/Help"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        Help</a>
+                    <a rel="tag"
+                       href="https://archgu.github.io/tags/Manjaro"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        Manjaro</a>
+                    <a rel="tag"
+                       href="https://archgu.github.io/tags/Config"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        Config</a>
+                    <a rel="tag"
+                       href="https://archgu.github.io/tags/Nespresso"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        Nespresso</a>
+                    <a rel="tag"
+                       href="https://archgu.github.io/tags/ChuanCai"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        ChuanCai</a>
+                    <a rel="tag"
+                       href="https://archgu.github.io/tags/Time"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        Time</a>
+                    <a rel="tag"
+                       href="https://archgu.github.io/tags/Development"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        Development</a>
+            </main>
+        </div>
+
+        <div class="module meta">
+            <header>
+                <h2 class="ft__center">
+    <a href="https://ld246.com/member/ArchGu"
+       aria-label="https://ld246.com/member/ArchGu"
+       class="vditor-tooltipped__nw vditor-tooltipped  user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+
+                </h2>
+            </header>
+            <main class="fn__clear">
+                <img src="https://b3logfile.com/avatar/1676712948893_1676713017172.png?imageView2/1/w/128/h/128/interlace/0/q/100" alt="ArchGu" aria-label="ArchGu"/>
+                <div class="fn-right">
+                    <a href="https://archgu.github.io/archives.html">
+                        13
+                        <span class="ft-gray">文章</span></a><br/>
+                    <span data-uvstaturl="https://archgu.github.io">0</span> <span class="ft-gray">浏览</span>
+                    
+                </div>
+            </main>
+        </div>
+
+
+            <div class="module">
+                <header><h2>存档</h2></header>
+                <main class="list">
+                    <ul>
+                                <li>
+                                        <a href="https://archgu.github.io/archives/2023/02"
+                                           title="2023 年 02 月(13)">
+                                            2023 年 02 月(13)</a>
+                                </li>
+                    </ul>
+                </main>
+            </div>
+
+    </section>
+</aside>
     </div>
 </div>
 <footer class="footer fn-clear">
@@ -222,7 +297,7 @@ send_timeout 600;
     version: "4.4.0",
     staticSite: true,
     showCodeBlockLn: false,
-    articleId: "1676741721235",
+    articleId: "1677052311601",
   }
 </script>
 <script src="https://archgu.github.io/skins/9IPHP/js/common.min.js?1677051321068"></script>
@@ -260,7 +335,7 @@ send_timeout 600;
     Util.addScript('https://archgu.github.io/js/page.min.js?1677051321068', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论不能为空",
-        "oId": "1676741721235",
+        "oId": "1677052311601",
         "blogHost": "https://archgu.github.io",
         "randomArticles1Label": "随机阅读：",
         "externalRelevantArticles1Label": "站外相关阅读："
@@ -269,7 +344,7 @@ send_timeout 600;
         page.load();
     page.tips.externalRelevantArticlesDisplayCount = "0";
         page.loadRandomArticles();
-        page.loadRelevantArticles('1676741721235', '<h4>相关阅读</h4>');
+        page.loadRelevantArticles('1677052311601', '<h4>相关阅读</h4>');
     Skin.initToc()
     page.share()
     });
@@ -277,4 +352,4 @@ send_timeout 600;
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 93ms, 2023/02/22 15:52:06 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 114ms, 2023/02/22 15:52:06 -->
